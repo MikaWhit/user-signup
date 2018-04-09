@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sign Up</title>
+        
+        <style>
+            form{
+                width: 450px
+            }
+            label{
+                display: inline-block;
+                width: 275px;
+                text-align: right;
+                margin-bottom: 5px;
+            }
+            
+            label:last-of-type{
+                margin-bottom: 10px;
+            }
+        
+            .error {
+                color: red;
+                float: right;
+            }
+            
+            .submit {
+                display: block;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Signup</h1>
+        
+        <form method="post">
+            <label for="username">Username
+                <input type="text" name="username" value="{{name}}">
+                {% if name_check == False %}
+                    <span class="error">This is not a valid username</span>
+                {% endif %}
+            </label>
+            
+            <label for="password">Password
+                <input name="password" type="password">
+                {% if password_check == False %}
+                    <span class="error">This is not a valid password</span>
+                {% endif %}
+            </label>
+
+            <label for="verify">Verify password
+                <input name="verify" type="password">
+                {% if verify_check == False %}
+                    <span class="error">The passwords do not match</span>
+                {% endif %}
+            </label>
+
+            <label for="email">Email (optional)
+                <input type="text" name="email" value="{{email_address}}">
+                {% if email_check == False %}
+                    <span class="error">This is not a valid email address</span>
+                {% endif %}
+            </label>
+
+            <input value="Submit" type="submit" class="submit">
+        </form>
+    </body>
+</html>
